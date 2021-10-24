@@ -1,0 +1,9 @@
+{
+  "type": "module",
+  "dependencies": {
+    "crypto": "^1.0.1",
+    "fs": "^0.0.1-security",
+    "js-sha3": "^0.8.0",
+    "sha3": "^2.1.4"
+  }
+}
