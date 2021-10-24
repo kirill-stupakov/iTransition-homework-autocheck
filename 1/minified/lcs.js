@@ -1,0 +1,1 @@
+function solution(n){if(0===n.length)return"";const s=n.shift();let l=0,o="";for(let e=0;e<s.length;e++)for(let t=e+l+1;t<=s.length;t++){var r=s.slice(e,t);n.every(t=>t.includes(r))&&(l=r.length,o=r)}return o}const strings=process.argv.slice(2,process.argv.length).sort((t,e)=>t.length-e.length);console.log(solution(strings));
