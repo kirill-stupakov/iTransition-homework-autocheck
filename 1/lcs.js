@@ -1,28 +1,25 @@
-function solution(strings) {
-  if (strings.length === 0) {
-    return "";
-  }
+console.log(
+  ((s) => {
+    return s.length
+      ? ((s) => {
+          let a = s[0],
+            maxLength = 0,
+            substring = "",
+            n = a.length;
 
-  const a = strings.shift();
+          for (let i = -1; ++i < n; ) {
+            for (let j = i + maxLength; ++j <= n; ) {
+              let str = a.slice(i, j);
 
-  let maxLength = 0;
-  let substring = "";
+              if (s.every((s) => s.includes(str))) {
+                maxLength = j - i;
+                substring = str;
+              }
+            }
+          }
 
-  for (let i = 0; i < a.length; i++) {
-    for (let j = i + maxLength + 1; j <= a.length; j++) {
-      const str = a.slice(i, j);
-
-      if (strings.every((s) => s.includes(str))) {
-        maxLength = str.length;
-        substring = str;
-      }
-    }
-  }
-
-  return substring;
-}
-
-const strings = process.argv
-  .slice(2, process.argv.length)
-  .sort((a, b) => a.length - b.length);
-console.log(solution(strings));
+          return substring;
+        })(s)
+      : "";
+  })(process.argv.slice(2))
+);
